@@ -2,7 +2,8 @@ import React, { useEffect } from "react";
 import "./App.css";
 
 //components
-import Countries from "./components/Countries/Countries";
+import Sidebar from "./components/Sidebar/Sidebar";
+import Map from "./components/Map/Map";
 
 //redux
 import { connect } from "react-redux";
@@ -16,7 +17,8 @@ const App = ({ getLocations, getWorldData }) => {
 
   return (
     <div className="App">
-      <Countries />
+      <Sidebar />
+      <Map />
     </div>
   );
 };

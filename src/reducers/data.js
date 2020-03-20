@@ -1,7 +1,9 @@
 import { GET_LOCATIONS, GET_WORLD_DATA } from "../actions/types";
+import { getSummary } from "../utils/data";
 
 const initialState = {
   locations: null,
+  summary: null,
   worldData: null
 };
 
@@ -12,7 +14,10 @@ export default function(state = initialState, action) {
     case GET_LOCATIONS:
       return {
         ...state,
-        locations: payload
+        locations: payload,
+        summary: getSummary(payload).sort(
+          (a, b) => b.latest.confirmed - a.latest.confirmed
+        )
       };
     case GET_WORLD_DATA:
       return {
