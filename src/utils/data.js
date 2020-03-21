@@ -11,7 +11,6 @@ export const getSummary = locations => {
         item => item.country_code === element.country_code
       );
 
-      console.log(summary[index].latest);
       summary[index] = {
         country_code: element.country_code,
         country: element.country,

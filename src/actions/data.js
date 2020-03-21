@@ -17,8 +17,6 @@ export const getWorldData = () => async dispatch => {
     "https://coronavirus-tracker-api.herokuapp.com/v2/latest"
   );
 
-  console.log(res.data);
-
   dispatch({
     type: GET_WORLD_DATA,
     payload: res.data.latest
