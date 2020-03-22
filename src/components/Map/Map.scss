@@ -15,5 +15,9 @@
     margin: 0;
     position: relative;
     text-align: center;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 }

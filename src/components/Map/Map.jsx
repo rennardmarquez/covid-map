@@ -1,6 +1,12 @@
 import React, { useState } from "react";
-import ReactMapGL, { Marker } from "react-map-gl";
+import ReactMapGL, { Marker, Popup } from "react-map-gl";
 import "./Map.scss";
+
+//components
+import CustomPopup from "../CustomPopup/CustomPopup";
+
+//utils
+import markerSize from "../../utils/markerSize";
 
 //redux
 import { connect } from "react-redux";
@@ -15,24 +21,14 @@ const Map = ({ locations }) => {
     minZoom: 2
   });
 
-  const markerSize = data => {
-    return data >= 50000
-      ? 50
-      : data < 50000 && data >= 10000
-      ? 32
-      : data < 10000 && data >= 1000
-      ? 24
-      : data < 1000 && data >= 100
-      ? 16
-      : 9;
-  };
+  const [selected, setSelected] = useState(null);
 
   return (
     <div className="map-container">
       <ReactMapGL
         {...viewport}
         mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
-        mapStyle="mapbox://styles/rennardmarquez/ck81nw9p023bx1itcaon4vkoh"
+        mapStyle="mapbox://styles/rennardmarquez/ck836nbuy1a3r1iq72dzi9w1b"
         onViewportChange={viewport => setViewport(viewport)}
       >
         {locations
@@ -49,11 +45,25 @@ const Map = ({ locations }) => {
                       height: `${markerSize(location.latest.confirmed)}px`,
                       width: `${markerSize(location.latest.confirmed)}px`
                     }}
+                    onClick={e => {
+                      e.preventDefault();
+                      setSelected(location);
+                    }}
                   ></div>
                 </Marker>
               ) : null
             )
           : null}
+        {selected ? (
+          <Popup
+            latitude={Number(selected.coordinates.latitude)}
+            longitude={Number(selected.coordinates.longitude)}
+            closeButton={false}
+            closeOnClick={true}
+          >
+            <CustomPopup location={selected} />
+          </Popup>
+        ) : null}
       </ReactMapGL>
     </div>
   );

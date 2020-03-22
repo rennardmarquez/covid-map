@@ -3,6 +3,7 @@ import "./Country.scss";
 
 //components
 import DataContainer from "../DataContainer/DataContainer";
+import { ReactComponent as Dropdown } from "../../assets/drop-down-arrow.svg";
 
 //redux
 import { connect } from "react-redux";
@@ -22,7 +23,19 @@ const Country = ({ country, latest }) => {
     <div className="country-data" onClick={clickCountry}>
       <div className="button">
         <div className="country-name">{country}</div>
-        <div className="confirmed">{numberWithCommas(latest.confirmed)}</div>
+
+        <div className="dropdown">
+          <div className="confirmed">{numberWithCommas(latest.confirmed)}</div>
+          <Dropdown
+            style={{
+              height: "14px",
+              width: "14px",
+              color: "blue",
+              marginLeft: "14px",
+              fill: "gray"
+            }}
+          />
+        </div>
       </div>
 
       {!isHidden ? (

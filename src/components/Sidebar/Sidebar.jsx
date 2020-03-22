@@ -3,10 +3,11 @@ import "./Sidebar.scss";
 
 //components
 import Country from "../Country/Country";
+import WorldData from "../WorldData/WorldData";
+import Footer from "../Footer/Footer";
 
 //redux
 import { connect } from "react-redux";
-import WorldData from "../WorldData/WorldData";
 
 const Sidebar = ({ summary }) => {
   return (
@@ -15,6 +16,7 @@ const Sidebar = ({ summary }) => {
       {summary ? (
         <Fragment>
           <WorldData />
+          <Footer />
           <div className="data-summary">
             {summary.map(({ country_code, ...rest }) => (
               <Country key={country_code} {...rest} />

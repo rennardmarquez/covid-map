@@ -1,5 +1,5 @@
 .country-data {
-  background-color: #3e3c46;
+  background-color: #1a2637;
   margin-bottom: 20px;
   padding: 15px;
   border-radius: 5px;
@@ -12,6 +12,11 @@
     .country-name {
       color: whitesmoke;
       font-family: "Roboto";
+    }
+
+    .dropdown {
+      display: flex;
+      align-items: center;
     }
 
     .confirmed {

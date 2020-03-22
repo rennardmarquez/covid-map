@@ -1,6 +1,8 @@
+$sidebar-color: #071217;
+
 .sidebar {
   width: 400px;
-  background-color: #252636;
+  background-color: $sidebar-color;
   display: flex;
   flex-direction: column;
   font-family: "Roboto", sans-serif;
@@ -16,7 +18,7 @@
 
   .data-summary {
     overflow: auto;
-    background-color: #2a2733;
+    background-color: $sidebar-color;
     padding: 25px 15px 25px 25px;
   }
 
