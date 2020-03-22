@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import "./App.css";
+import "./App.scss";
 
 //components
 import Sidebar from "./components/Sidebar/Sidebar";

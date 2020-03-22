@@ -1,0 +1,21 @@
+.world-data {
+  display: flex;
+  flex-direction: column;
+  background-color: #313348;
+  border-radius: 5px;
+  margin: 10px 25px 25px 25px;
+  padding: 20px 20px 12px 20px;
+
+  .total-container {
+    .label {
+      color: rgb(187, 187, 187);
+      font-size: 12px;
+    }
+
+    .total {
+      color: hotpink;
+      font-family: "Lato";
+      font-size: 30px;
+    }
+  }
+}
