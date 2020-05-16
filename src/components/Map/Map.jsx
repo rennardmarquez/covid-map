@@ -18,7 +18,7 @@ const Map = ({ locations }) => {
     width: "100%",
     height: "100%",
     zoom: 2,
-    minZoom: 2
+    minZoom: 2,
   });
 
   const [selected, setSelected] = useState(null);
@@ -29,10 +29,10 @@ const Map = ({ locations }) => {
         {...viewport}
         mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
         mapStyle="mapbox://styles/rennardmarquez/ck836nbuy1a3r1iq72dzi9w1b"
-        onViewportChange={viewport => setViewport(viewport)}
+        onViewportChange={(viewport) => setViewport(viewport)}
       >
         {locations
-          ? locations.map(location =>
+          ? locations.map((location) =>
               location.latest.confirmed ? (
                 <Marker
                   key={location.id}
@@ -43,9 +43,9 @@ const Map = ({ locations }) => {
                     className="circle"
                     style={{
                       height: `${markerSize(location.latest.confirmed)}px`,
-                      width: `${markerSize(location.latest.confirmed)}px`
+                      width: `${markerSize(location.latest.confirmed)}px`,
                     }}
-                    onClick={e => {
+                    onClick={(e) => {
                       e.preventDefault();
                       setSelected(location);
                     }}
@@ -69,8 +69,8 @@ const Map = ({ locations }) => {
   );
 };
 
-const mapStateToProps = state => ({
-  locations: state.data.locations
+const mapStateToProps = (state) => ({
+  locations: state.data.locations,
 });
 
 export default connect(mapStateToProps)(Map);

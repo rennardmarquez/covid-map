@@ -32,19 +32,14 @@ const WorldData = ({ worldData }) => {
             data={numberWithCommas(worldData.deaths)}
             color="#EE7587"
           />
-          <DataContainer
-            children="Recovered Cases"
-            data={numberWithCommas(worldData.recovered)}
-            color="#58C9CC"
-          />
         </div>
       ) : null}
     </Fragment>
   );
 };
 
-const mapStateToProps = state => ({
-  worldData: state.data.worldData
+const mapStateToProps = (state) => ({
+  worldData: state.data.worldData,
 });
 
 export default connect(mapStateToProps)(WorldData);
