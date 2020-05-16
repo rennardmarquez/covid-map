@@ -23,7 +23,6 @@ const Map = ({ locations }) => {
 
   const [selected, setSelected] = useState(null);
 
-  //fix
   return (
     <div className="map-container">
       <ReactMapGL
