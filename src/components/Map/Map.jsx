@@ -13,11 +13,11 @@ import { connect } from "react-redux";
 
 const Map = ({ locations }) => {
   const [viewport, setViewport] = useState({
-    latitude: 38,
-    longitude: 55,
+    latitude: 16,
+    longitude: 100,
     width: "100%",
     height: "100%",
-    zoom: 2,
+    zoom: 3,
     minZoom: 2,
   });
 
